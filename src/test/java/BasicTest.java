@@ -1,5 +1,6 @@
-import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,14 +20,20 @@ public class BasicTest {
 
     private static ThreadLocal<WebDriver> threadLocal;
 
-    @Before
-    public void startUp() {
+    @BeforeClass
+    public void browserStartUp() {
         threadLocal = new ThreadLocal<>();
         threadLocal.set(new FirefoxDriver(firefoxBinary, firefoxProfile));
     }
 
-    @After
-    public void tearDown() {
+    @Before
+    public void setUp() {
+        // creating all required objects
+
+    }
+
+    @AfterClass
+    public void browserTearDown() {
         if(threadLocal != null) {
             threadLocal.get().close();
             threadLocal.get().quit();
