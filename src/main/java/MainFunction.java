@@ -44,7 +44,7 @@ public abstract class MainFunction {
 
         File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            org.apache.commons.io.FileUtils.copyFile(src, new File("./Results/" + fileName + ".png"));
+            org.apache.commons.io.FileUtils.copyFile(src, new File("./screenShots/" + fileName + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
