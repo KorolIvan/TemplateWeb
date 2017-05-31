@@ -110,5 +110,16 @@ public class LogIn extends MainFunction {
                 "check_data"), driver.getCurrentUrl());
     }
 
+    public void openRegistrationPage() {
+
+        open();
+        driver.findElement(By.xpath(ConfigurationsProperties.getProperty("elements", "registration"))).click();
+        sleepSecond(2);
+        assertEquals(ConfigurationsProperties.getProperty("assert", "url_registration"), driver.getCurrentUrl());
+
+    }
+
+
+
 
 }
