@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import pages.logIn.LogIn;
 
 import java.io.File;
 
@@ -12,6 +13,8 @@ import java.io.File;
  * @author by Ivan Korol on 5/29/2017.
  */
 public class BasicTest {
+
+    protected LogIn logIn;
 
     private static File pathBinary = new File("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
     //private static File pathBinary = new File("/usr/lib/firefox/firefox.sh");
@@ -29,6 +32,7 @@ public class BasicTest {
     @Before
     public void setUp() {
         // creating all required objects
+        logIn = new LogIn(getWebDriver());
 
     }
 
