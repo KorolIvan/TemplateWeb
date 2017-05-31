@@ -119,7 +119,12 @@ public class LogIn extends MainFunction {
 
     }
 
-
+    public void openForgotPassPage() {
+        open();
+        driver.findElement(By.xpath(ConfigurationsProperties.getProperty("elements", "forgotPass"))).click();
+        sleepSecond(2);
+        assertEquals(ConfigurationsProperties.getProperty("assert", "url_forgotPass"), driver.getCurrentUrl());
+    }
 
 
 }
