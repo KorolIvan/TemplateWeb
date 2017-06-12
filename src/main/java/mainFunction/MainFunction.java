@@ -1,5 +1,8 @@
 package mainFunction;
 
+import com.asprise.ocr.Ocr;
+import dataInfo.ConfigurationsProperties;
+import helpers.AllertMessage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -74,6 +77,20 @@ public abstract class MainFunction {
         return element.getText();
     }
 
+    protected boolean validAlertMessage(AllertMessage allertMessage) {
+        String result;
+        String toastForCheck = ConfigurationsProperties.getProperty(allertMessage.getFileName(), allertMessage.getAssertName());
+        takeScreenShot(allertMessage.getScreenName());
+        String imagePath = "./screenShots/" + allertMessage.getScreenName() + ".png";
+        Ocr.setUp();
+        Ocr ocr = new Ocr();
+        ocr.startEngine("fra", Ocr.SPEED_FAST);
+        result = ocr.recognize(new File[]{new File(imagePath)}, Ocr.RECOGNIZE_TYPE_TEXT, Ocr.OUTPUT_FORMAT_PLAINTEXT);
+        /*System.out.println("result: "+ result);
+        System.out.println("For check: "+ toastForCheck);*/
+        ocr.stopEngine();
 
+        return result.contains(toastForCheck);
+    }
 
 }
