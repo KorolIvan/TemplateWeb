@@ -112,7 +112,11 @@ public class LogIn extends MainFunction {
 
     public void openRegistrationPage() {
 
+        System.out.println("Step 1: Open link: " +
+                ConfigurationsProperties.getProperty("configuration", "url"));
         open();
+        sleepSecond(3);
+        System.out.println("Step 2: Click on registration link/button");
         driver.findElement(By.xpath(ConfigurationsProperties.getProperty("elements", "registration"))).click();
         sleepSecond(2);
         assertEquals(ConfigurationsProperties.getProperty("assert", "url_registration"), driver.getCurrentUrl());
@@ -120,7 +124,10 @@ public class LogIn extends MainFunction {
     }
 
     public void openForgotPassPage() {
+        System.out.println("Step 1: Open link: " +
+                ConfigurationsProperties.getProperty("configuration", "url"));
         open();
+        System.out.println("Step 2: Click on forgot password screen");
         driver.findElement(By.xpath(ConfigurationsProperties.getProperty("elements", "forgotPass"))).click();
         sleepSecond(2);
         assertEquals(ConfigurationsProperties.getProperty("assert", "url_forgotPass"), driver.getCurrentUrl());
