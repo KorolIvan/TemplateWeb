@@ -29,6 +29,7 @@ public class ResetPass extends MainFunction {
         assertEquals(ConfigurationsProperties.getProperty("assert", "url_forgotPass"), driver.getCurrentUrl());
     }
 
+    // check error message while sending request without data
     public void sendRequestWithEmptyFields() {
         switchToResetPassPage();
         sleepSecond(3);
@@ -39,6 +40,7 @@ public class ResetPass extends MainFunction {
 
     }
 
+    //check if password recovery can be sent successful to unregister user
     public void sendRequestWithInvalidData() {
         switchToResetPassPage();
         sleepSecond(3);
@@ -51,6 +53,7 @@ public class ResetPass extends MainFunction {
         // create assert for error
     }
 
+    // check of successful sending request for reset password
     public void sendRequestWithValidData() {
         switchToResetPassPage();
         sleepSecond(3);

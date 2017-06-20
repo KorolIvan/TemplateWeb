@@ -22,6 +22,7 @@ public class LogIn extends MainFunction {
         driver.get(ConfigurationsProperties.getProperty("configurations", "url"));
     }
 
+    //check if registered user can be logged in
     public void logInAsValidUser(){
         open();
         System.out.println("Step 1: Open link: " +
@@ -51,6 +52,7 @@ public class LogIn extends MainFunction {
 
     }
 
+    //verification log out button
     public void logOut() {
         System.out.println("Step 5: Click on LogOut button");
         driver.findElement(By.xpath(ConfigurationsProperties.getProperty("elements", "logOut"))).click();
@@ -58,6 +60,7 @@ public class LogIn extends MainFunction {
         assertEquals(ConfigurationsProperties.getProperty("assert", "url_logIn"), driver.getCurrentUrl());
     }
 
+    // check if unregister user can be log in
     public void logInWithInvalidData() {
         open();
         System.out.println("Step 1: Open link: " +
@@ -87,6 +90,7 @@ public class LogIn extends MainFunction {
                 "check_data"), driver.getCurrentUrl());
     }
 
+    //check error message while log in without data
     public void logInWithEmptyData() {
         open();
         System.out.println("Step 1: Open link: " +
@@ -110,6 +114,7 @@ public class LogIn extends MainFunction {
                 "check_data"), driver.getCurrentUrl());
     }
 
+    //validation registration button/link
     public void openRegistrationPage() {
 
         System.out.println("Step 1: Open link: " +
@@ -123,6 +128,7 @@ public class LogIn extends MainFunction {
 
     }
 
+    //validation reset password button/link
     public void openForgotPassPage() {
         System.out.println("Step 1: Open link: " +
                 ConfigurationsProperties.getProperty("configuration", "url"));
