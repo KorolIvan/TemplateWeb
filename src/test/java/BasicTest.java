@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import pages.logIn.LogIn;
+import util.UseBrowser;
 
 import java.io.File;
 
@@ -14,25 +14,24 @@ import java.io.File;
  */
 public class BasicTest {
 
-    protected LogIn logIn;
 
-    private static File pathBinary = new File("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+    //private static File pathBinary = new File("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
     //private static File pathBinary = new File("/usr/lib/firefox/firefox.sh");
-    private static FirefoxBinary firefoxBinary = new FirefoxBinary(pathBinary);
-    private static FirefoxProfile firefoxProfile = new FirefoxProfile();
+//    private static FirefoxBinary firefoxBinary = new FirefoxBinary(pathBinary);
+//    private static FirefoxProfile firefoxProfile = new FirefoxProfile();
 
     private static ThreadLocal<WebDriver> threadLocal;
 
     @BeforeClass
     public void browserStartUp() {
         threadLocal = new ThreadLocal<>();
-        threadLocal.set(new FirefoxDriver(firefoxBinary, firefoxProfile));
+        threadLocal.set(new UseBrowser().getDriver("chrome"));
     }
 
     @Before
     public void setUp() {
         // creating all required objects
-        logIn = new LogIn(getWebDriver());
+
 
     }
 
