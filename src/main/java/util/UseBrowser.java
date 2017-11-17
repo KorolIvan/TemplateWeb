@@ -21,6 +21,14 @@ public class UseBrowser {
     //commands to cmd for linux
     private static final String CHECK_CHROME_LINUX = "dpkg -s chromium-browser";
     private static final String CHECK_FIREFOX_LINUX = "dpkg -s firefox";
+    //todo add required to the system win and mac commands
+    //commands to cmd for windows
+    private static final String CHECK_CHROME_WINDOWS = "";
+    private static final String CHECK_FIREFOX_WINDOWS = "";
+
+    //commands to cmd for mac
+    private static final String CHECK_CHROME_MAC = "";
+    private static final String CHECK_FIREFOX_MAC = "";
 
     //path for windows os
     private static final String CHROME_DRIVER_PATH = "src/main/resources/driver/chromedriver.exe";
@@ -37,47 +45,46 @@ public class UseBrowser {
     private static final String CHROME_DRIVER_PATH_MAC = "src/main/resources/driver/";
 
     //todo call console check the browsers and return the current browser
-    private void getBrowser () throws InterruptedException, IOException {
+    private String getBrowser () throws InterruptedException, IOException {
         StringBuilder builder = new StringBuilder();
         String command;
         String line;
-        for(int i = 0; i < getCommand().size(); i++){
+        String existBrowser = null;
+        String[] browsers = {"chrom", "firefox", "internet explorer", "ie", "safari"};
+        first: for (int i = 0; i < getCommand().size(); i++) {
             command = getCommand().get(i);
-            System.out.println(command);
             Process process = Runtime.getRuntime().exec(command);
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             while ((line = reader.readLine()) != null) {
                 builder.append(line + "\n");
             }
             line = builder.toString();
-            System.out.println(line);
-            if (line.contains("Status: install ok installed")) {
-                System.out.println("+");
-                break;
-            }else {
-                System.out.println("-");
+            //System.out.println(line);
+            for(int j = 0; j < browsers.length; j++){
+                if (line.contains(browsers[j]) && line.contains("installed")) {
+                    //System.out.println(browsers[j]);
+                    existBrowser = browsers[j];
+                    break first;
+                }
             }
             process.waitFor();
         }
-
-
-
-
+        return existBrowser;
     }
 
     private String operationSystem() {
         return new OSSystem().getOs();
     }
 
-    public WebDriver getDriver(String browser) {
+    public WebDriver getDriver() throws IOException, InterruptedException {
         switch (operationSystem()) {
             case "windows":
-                switch (browser) {
+                switch (getBrowser()) {
                     case "firefox":
                         System.setProperty("webdriver.gecko.driver", FIREFOX_DRIVER_PATH);
                         driver = new FirefoxDriver();
                         break;
-                    case "chrome":
+                    case "chrom":
                         System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_PATH);
                         driver = new ChromeDriver();
                         driver.manage().window().maximize();
@@ -93,12 +100,12 @@ public class UseBrowser {
 
 
             case "linux":
-                switch (browser) {
+                switch (getBrowser()) {
                     case "firefox":
                         System.setProperty("webdriver.gecko.driver", FIREFOX_DRIVER_PATH_LINUX);
                         driver = new FirefoxDriver();
                         break;
-                    case "chrome":
+                    case "chrom":
                         System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_PATH_LINUX);
                         driver = new ChromeDriver();
                         driver.manage().window().maximize();
@@ -154,6 +161,6 @@ public class UseBrowser {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        new UseBrowser().getBrowser();
+        System.out.println(new UseBrowser().getBrowser());
     }
 }

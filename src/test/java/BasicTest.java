@@ -2,12 +2,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import util.UseBrowser;
 
-import java.io.File;
+import java.io.IOException;
 
 /**
  * @author by Ivan Korol on 5/29/2017.
@@ -23,9 +20,9 @@ public class BasicTest {
     private static ThreadLocal<WebDriver> threadLocal;
 
     @BeforeClass
-    public void browserStartUp() {
+    public void browserStartUp() throws IOException, InterruptedException {
         threadLocal = new ThreadLocal<>();
-        threadLocal.set(new UseBrowser().getDriver("chrome"));
+        threadLocal.set(new UseBrowser().getDriver());
     }
 
     @Before
