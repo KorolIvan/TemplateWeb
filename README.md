@@ -6,7 +6,7 @@
 3) selenium,
 4) allure
 
-##Set up allure for rest report on compute :
+##Set up allure for test report on compute :
 
 ####Manual installation
 
@@ -42,8 +42,9 @@
 
 ####_build result report:_
 ```
-- mvn site (after this command you will be able to see the result as a site, which located {project dir}\target\site\allure-maven-plugin\index.html)
+- mvn site 
 ```  
+(after this command you will be able to see the result as a site, which located {project dir}\target\site\allure-maven-plugin\index.html)
                      
 ##some more info about allure:
 https://docs.qameta.io/allure/#_copyright                
