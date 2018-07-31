@@ -5,9 +5,9 @@ package korol.ivan.util.browserset;
  */
 public class OSSystem {
 
-    private String os;
+    private static String os;
 
-    public String getOs() {
+    public static String getOs() {
         os = System.getProperty("os.name").toLowerCase();
         if(os.contains("win")){
             os = "windows";

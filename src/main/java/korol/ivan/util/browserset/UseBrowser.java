@@ -1,6 +1,5 @@
-package korol.ivan.util.browserset.simple;
+package korol.ivan.util.browserset;
 
-import korol.ivan.util.browserset.OSSystem;
 import korol.ivan.util.logger.EventHandler;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -11,11 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author by Ivan Korol on 11/8/2017.
@@ -25,18 +20,18 @@ public class UseBrowser {
     private WebDriver driver;
     private EventFiringWebDriver wrappedDriver;
 
-    //path for windows os
+    //path to browsers drivers for windows os
     private static final String CHROME_DRIVER_PATH = "src/main/resources/drivers/win/chromedriver.exe";
     private static final String IE_DRIVER_PATH = "src/main/resources/drivers/win/IEDriverServer.exe";
     private static final String FIREFOX_DRIVER_PATH = "src/main/resources/drivers/win/geckodriver_winX64.exe";
 
-    //path for linux os
+    //path to browsers drivers for linux os
     private static final String FIREFOX_DRIVER_PATH_LINUX = "src/main/resources/drivers /linux/geckodriver";
     private static final String CHROME_DRIVER_PATH_LINUX = "src/main/resources/drivers/linux/chromedriver";
     //private static final String CHROME_DRIVER_PATH_LINUX = "/var/lib/jenkins/drivers/chromedriver";
 
 
-    //path for mac os
+    //path to browsers drivers for mac os
     //с сафари немного не удобно так как надо ставить отдельно расширение в сам браузер чтоб запускать тесты
     //private static final String SAFARY_DRIVER_PATH_MAC = "src/main/resources/driver/";
     private static final String CHROME_DRIVER_PATH_MAC = "src/main/resources/drivers/mac/chromedriver";
@@ -45,11 +40,10 @@ public class UseBrowser {
         return new OSSystem().getOs();
     }
 
-    //public WebDriver getDriver() throws IOException, InterruptedException {
-    public EventFiringWebDriver getDriver(String browserName) throws IOException, InterruptedException {
+    //@Parameters({"browserName"})
+    public EventFiringWebDriver getDriver( String browserName) throws IOException, InterruptedException {
         switch (operationSystem()) {
             case "windows":
-                //switch (getBrowser()) {
                 switch (browserName) {
                     case "firefox":
                         System.setProperty("webdriver.gecko.driver", FIREFOX_DRIVER_PATH);
@@ -103,7 +97,6 @@ public class UseBrowser {
                 }
 
             case "mac":
-//                switch (getBrowser()) {
                 switch (browserName) {
                     case "firefox":
                         System.setProperty("webdriver.gecko.driver", FIREFOX_DRIVER_PATH);
