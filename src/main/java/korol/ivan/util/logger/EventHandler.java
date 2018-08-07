@@ -4,13 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
+import org.testng.ITestNGListener;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.Arrays;
 
 /**
  * @author Ivan Korol on 7/18/2018
  */
-public class EventHandler implements WebDriverEventListener {
+public class EventHandler implements WebDriverEventListener, ITestNGListener {
 
     @Override
     public void beforeAlertAccept(WebDriver webDriver) {
@@ -37,6 +39,7 @@ public class EventHandler implements WebDriverEventListener {
 
     }
 
+    @Step(value = "open url {0}")
     @Override
     public void afterNavigateTo(String s, WebDriver webDriver) {
         System.out.println("open url: " + s);
@@ -47,6 +50,7 @@ public class EventHandler implements WebDriverEventListener {
 
     }
 
+    @Step(value = "navigation back")
     @Override
     public void afterNavigateBack(WebDriver webDriver) {
 

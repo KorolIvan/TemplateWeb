@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import korol.ivan.util.browserset.UseBrowser;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import java.io.IOException;
 
@@ -40,8 +41,6 @@ public class BasicTest {
             }finally {
                 threadLocal.get().quit();
             }
-
-
         }
     }
 
@@ -50,7 +49,8 @@ public class BasicTest {
         return threadLocal.get();
     }
 
-    @Test
+
+    @Test(description = "open w3school site on the browser")
     public void someTest() {
         getWebDriver().get("https://www.w3schools.com");
         Assert.assertFalse(false , "some message");

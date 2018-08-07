@@ -170,7 +170,7 @@
                 <configuration>
                     <!--here is need specify the name of *.xml file which expect to run-->
                     <suiteXmlFiles>
-                        <suiteXmlFile>${basedir}/src/test/resources/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>${basedir}/src/test/resources/crossBrowsers.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>false</testFailureIgnore>
                     <argLine>

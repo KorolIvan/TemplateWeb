@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="regresion test">
+<suite name="regression test">
+    <listeners>
+        <listener class-name="korol.ivan.util.logger.EventHandler"/>
+    </listeners>
     <parameter name="browserName" value="chrome"/>
     <test name="test chrome">
         <classes>
