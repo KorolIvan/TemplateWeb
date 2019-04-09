@@ -1,13 +1,13 @@
-#Automation scripts template for web
+# Automation scripts template for web
 
-##technology:
+## technology:
 1) java jdk 1.8.16x
 2) maven
 3) testNG, JUnit
 4) selenium
 5) allure
 
-##Set up allure for test report on compute :
+## Set up allure for test report on compute :
 
 ####Manual installation
 
