@@ -9,7 +9,6 @@ import korol.ivan.util.browserset.UseBrowser;
 
 import java.io.IOException;
 
-
 /**
  * @author by Ivan Korol on 5/29/2017.
  */
@@ -18,19 +17,13 @@ public class BasicTest {
     private static ThreadLocal<WebDriver> threadLocal;
 
     @BeforeClass
-    public static void browserStartUp() throws IOException, InterruptedException {
+    public static void setUp() throws IOException, InterruptedException {
         threadLocal = new ThreadLocal<>();
         threadLocal.set(new UseBrowser().getDriver("chrome"));
     }
 
-    @BeforeClass
-    public static void setUp() {
-        // creating all required objects
-
-    }
-
     @AfterClass
-    public static void browserTearDown() {
+    public static void tearDown() {
         if (threadLocal != null) {
             try {
                 // this command will close IE browser window
@@ -44,11 +37,9 @@ public class BasicTest {
         }
     }
 
-
     private WebDriver getWebDriver() {
         return threadLocal.get();
     }
-
 
     @Test
     public void someTest() {
