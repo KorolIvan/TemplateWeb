@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
-import org.testng.ITestNGListener;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.Arrays;
@@ -12,7 +11,7 @@ import java.util.Arrays;
 /**
  * @author Ivan Korol on 7/18/2018
  */
-public class EventHandler implements WebDriverEventListener, ITestNGListener {
+public class EventHandler implements WebDriverEventListener {
 
     @Override
     public void beforeAlertAccept(WebDriver webDriver) {

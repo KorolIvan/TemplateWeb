@@ -1,10 +1,11 @@
 package test;
 
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import korol.ivan.util.browserset.UseBrowser;
-import org.testng.Assert;
-import org.testng.annotations.*;
-import ru.yandex.qatools.allure.annotations.Step;
 
 import java.io.IOException;
 
@@ -16,20 +17,19 @@ public class BasicTest {
 
     private static ThreadLocal<WebDriver> threadLocal;
 
-    @BeforeTest
-    @Parameters({"browserName"})
-    public static void browserStartUp(String browserName) throws IOException, InterruptedException {
+    @BeforeClass
+    public static void browserStartUp() throws IOException, InterruptedException {
         threadLocal = new ThreadLocal<>();
-        threadLocal.set(new UseBrowser().getDriver(browserName));
+        threadLocal.set(new UseBrowser().getDriver("chrome"));
     }
 
     @BeforeClass
-    public void setUp() {
+    public static void setUp() {
         // creating all required objects
 
     }
 
-    @AfterTest
+    @AfterClass
     public static void browserTearDown() {
         if (threadLocal != null) {
             try {
@@ -50,9 +50,9 @@ public class BasicTest {
     }
 
 
-    @Test(description = "open w3school site on the browser")
+    @Test
     public void someTest() {
         getWebDriver().get("https://www.w3schools.com");
-        Assert.assertFalse(false , "some message");
+        Assert.assertFalse("some message", false);
     }
 }
