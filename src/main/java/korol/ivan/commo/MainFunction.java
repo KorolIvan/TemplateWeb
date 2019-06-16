@@ -19,6 +19,7 @@ public abstract class MainFunction extends StepsImpl {
     protected WebDriver driver;
 
     public MainFunction(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         new WebDriverWait(this.driver, 10);
         PageFactory.initElements(this.driver, this);

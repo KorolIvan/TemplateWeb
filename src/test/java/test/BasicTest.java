@@ -1,9 +1,8 @@
 package test;
 
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import korol.ivan.commo.locators.ElementType;
+import korol.ivan.pages.TestPage;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import korol.ivan.util.browserset.UseBrowser;
 
@@ -16,10 +15,17 @@ public class BasicTest {
 
     private static ThreadLocal<WebDriver> threadLocal;
 
+    protected TestPage testPage = null;
+
     @BeforeClass
     public static void setUp() throws IOException, InterruptedException {
         threadLocal = new ThreadLocal<>();
         threadLocal.set(new UseBrowser().getDriver("chrome"));
+    }
+
+    @Before
+    public void setAllObjects() {
+        testPage = new TestPage(getWebDriver());
     }
 
     @AfterClass
@@ -43,7 +49,8 @@ public class BasicTest {
 
     @Test
     public void someTest() {
-        getWebDriver().get("https://www.w3schools.com");
+        testPage.open();
+        testPage.clickElement(ElementType.BUTTON, "Поиск");
         Assert.assertFalse("some message", false);
     }
 }

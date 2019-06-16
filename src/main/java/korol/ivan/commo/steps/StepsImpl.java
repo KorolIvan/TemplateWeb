@@ -1,5 +1,8 @@
 package korol.ivan.commo.steps;
 
+import korol.ivan.commo.locators.Element;
+import korol.ivan.commo.locators.ElementType;
+import korol.ivan.commo.locators.LocatorsManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,8 +14,14 @@ import java.util.ArrayList;
 /**
  * @author Ivan Korol on 7/18/2018
  */
-public class StepsImpl implements Steps {
+public class StepsImpl extends LocatorsManager implements Steps {
+
     private WebDriver driver;
+
+    public StepsImpl(WebDriver driver) {
+        super(driver);
+        this.driver = driver;
+    }
 
     @Step(value = "enter text - \"{1}\" to input field")
     @Override
@@ -71,5 +80,11 @@ public class StepsImpl implements Steps {
     @Override
     public void clickOnElement(WebElement element) {
         element.click();
+    }
+
+    @Step(value = "click on {0} with name {1}")
+    public void clickElement(ElementType type, String elementName) {
+        Element element = getElement(type);
+        element.getElement(elementName).click();
     }
 }

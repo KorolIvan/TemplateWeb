@@ -10,7 +10,8 @@ public class LocatorsXPaths {
     private LocatorsXPaths(){}
 
     public final static String BUTTON_XPATH = "//input[@type='button'] " +
-            "| //button[@value='%s'] " +
-            "| //div[contains(@Class, 'button')]";
+            "| //button[@value = '%s'] " +
+            "| //div[contains(@Class, 'button')] " +
+            " | //input[contains(@value, '%s')]";
 
 }
