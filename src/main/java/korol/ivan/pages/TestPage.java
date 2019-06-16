@@ -11,6 +11,6 @@ public class TestPage extends MainFunction {
 
     @Override
     public void open() {
-        driver.get("http://www.protesting.ru/");
+        driver.get("https://www.zillow.com/");
     }
 }

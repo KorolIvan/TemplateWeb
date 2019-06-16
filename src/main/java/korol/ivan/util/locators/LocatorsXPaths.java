@@ -14,4 +14,6 @@ public class LocatorsXPaths {
             "| //div[contains(@Class, 'button')] " +
             " | //input[contains(@value, '%s')]";
 
+    public final static String LINK_XPATH = "//li//a[contains(@title, %s)]";
+
 }

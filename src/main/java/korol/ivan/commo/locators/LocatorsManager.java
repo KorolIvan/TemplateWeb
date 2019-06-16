@@ -15,8 +15,8 @@ public class LocatorsManager {
 
     public static void main(String[] args) {
         LocatorsManager lm = new LocatorsManager();
-        Element element1 = lm.getElement(ElementType.BUTTON);
-        Element element2 = lm.getElement(ElementType.BUTTON);
+        Element element1 = lm.getElement(ElementType.LINK);
+        Element element2 = lm.getElement(ElementType.LINK);
         System.out.println(element1);
         System.out.println(element2);
     }
@@ -26,7 +26,7 @@ public class LocatorsManager {
             case BUTTON:
                 return ButtonElement.getInstance(driver);
             case LINK:
-                return null;
+                return LinkElement.getInstance(driver);
             case TABLE:
                 return null;
             case CHECKBOX:
