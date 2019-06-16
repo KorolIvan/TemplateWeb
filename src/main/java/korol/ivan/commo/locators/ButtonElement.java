@@ -1,20 +1,25 @@
 package korol.ivan.commo.locators;
 
-import com.google.inject.Singleton;
 import korol.ivan.util.locators.LocatorsXPaths;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
-@Singleton
+
 public class ButtonElement extends LocatorsController implements Element {
     private WebDriver driver;
 
-    public ButtonElement(WebDriver driver){
+    private static ButtonElement buttonElement;
+
+    private ButtonElement(WebDriver driver){
         this.driver = driver;
+    }
+
+    public static ButtonElement getInstance(WebDriver driver) {
+        if(buttonElement == null) {
+            buttonElement = new ButtonElement(driver);
+        }
+        return buttonElement;
     }
 
     @Override

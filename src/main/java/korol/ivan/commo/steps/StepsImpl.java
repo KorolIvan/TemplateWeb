@@ -82,7 +82,7 @@ public class StepsImpl extends LocatorsManager implements Steps {
         element.click();
     }
 
-    @Step(value = "click on {0} with name {1}")
+    @Step(value = "click on {0} with name '{1}'")
     public void clickElement(ElementType type, String elementName) {
         Element element = getElement(type);
         element.getElement(elementName).click();

@@ -10,10 +10,21 @@ public class LocatorsManager {
         this.driver = driver;
     }
 
+    public LocatorsManager() {
+    }
+
+    public static void main(String[] args) {
+        LocatorsManager lm = new LocatorsManager();
+        Element element1 = lm.getElement(ElementType.BUTTON);
+        Element element2 = lm.getElement(ElementType.BUTTON);
+        System.out.println(element1);
+        System.out.println(element2);
+    }
+
     public Element getElement(ElementType elementType) {
         switch (elementType) {
             case BUTTON:
-                return new ButtonElement(driver);
+                return ButtonElement.getInstance(driver);
             case LINK:
                 return null;
             case TABLE:
