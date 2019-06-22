@@ -38,7 +38,7 @@ public class LocatorsManager {
             case TEXTFIELD:
                 return null;
             case RADIOBUTTON:
-                return null;
+                return RadioButtonElement.getInstance(driver);
             default:
                 throw new NullPointerException("Element type not fount");
         }

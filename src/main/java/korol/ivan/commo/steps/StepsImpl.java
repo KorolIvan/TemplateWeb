@@ -3,6 +3,7 @@ package korol.ivan.commo.steps;
 import korol.ivan.commo.locators.Element;
 import korol.ivan.commo.locators.ElementType;
 import korol.ivan.commo.locators.LocatorsManager;
+import korol.ivan.commo.locators.Selectable;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -86,5 +87,11 @@ public class StepsImpl extends LocatorsManager implements Steps {
     public void clickElement(ElementType type, String elementName) {
         Element element = getElement(type);
         element.getElement(elementName).click();
+    }
+
+    @Step(value = "I select {0} with label {1}")
+    public void selectElementWithLabel(ElementType type, String label, boolean select) {
+        Selectable element = (Selectable) getElement(type);
+        element.selectElement(label, select);
     }
 }

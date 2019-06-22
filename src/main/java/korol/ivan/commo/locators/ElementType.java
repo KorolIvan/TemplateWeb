@@ -9,5 +9,4 @@ public enum  ElementType {
     LINK,
     TABLE,
     TEXTAREA,
-
 }

@@ -10,7 +10,7 @@ public class LocatorsController {
         return Arrays.asList(xPath.split("\\|"));
     }
 
-    public List<String> formatXPath(String xpath, String name) {
+    public List<String> getFormattedXPath(String xpath, String name) {
         List<String> temp = new ArrayList<>();
         for (String xpathe : getXPaths(xpath)) {
             temp.add(String.format(xpathe, name));

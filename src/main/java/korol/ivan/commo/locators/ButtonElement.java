@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
-public class ButtonElement extends LocatorsController implements Element {
+public class ButtonElement extends LocatorsController implements Clickable {
     private WebDriver driver;
 
     private static ButtonElement buttonElement;
@@ -24,7 +24,7 @@ public class ButtonElement extends LocatorsController implements Element {
 
     @Override
     public WebElement getElement(String elementName) {
-        List<String> temp = formatXPath(LocatorsXPaths.BUTTON_XPATH, elementName);
+        List<String> temp = getFormattedXPath(LocatorsXPaths.BUTTON_XPATH, elementName);
         WebElement element = null;
         for (String aTemp : temp) {
             try {

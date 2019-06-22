@@ -16,4 +16,6 @@ public class LocatorsXPaths {
 
     public final static String LINK_XPATH = "//li//a[contains(@title, %s)]";
 
+    public final static String RADIO_BUTTON_XPATH = "//form//label[text()=' %s']/input[@type='radio']";
+
 }

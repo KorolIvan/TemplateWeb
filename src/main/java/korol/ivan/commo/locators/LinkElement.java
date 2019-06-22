@@ -26,7 +26,7 @@ public class LinkElement extends LocatorsController implements Element {
 
     @Override
     public WebElement getElement(String elementName) {
-        List<String> temp = formatXPath(LocatorsXPaths.LINK_XPATH, elementName);
+        List<String> temp = getFormattedXPath(LocatorsXPaths.LINK_XPATH, elementName);
         WebElement element = null;
         for (String aTemp : temp) {
             try {
