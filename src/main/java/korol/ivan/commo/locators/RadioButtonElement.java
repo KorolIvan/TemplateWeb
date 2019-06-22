@@ -22,7 +22,6 @@ public class RadioButtonElement extends LocatorsController implements Selectable
         return radioButtonElement;
     }
 
-    //todo check if statement for verification the exist element
     @Override
     public WebElement getElement(String elementName) {
         List<String> pathes = getFormattedXPath(LocatorsXPaths.RADIO_BUTTON_XPATH, elementName);
