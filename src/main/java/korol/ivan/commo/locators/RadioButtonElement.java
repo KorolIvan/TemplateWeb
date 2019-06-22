@@ -25,12 +25,9 @@ public class RadioButtonElement extends LocatorsController implements Selectable
     @Override
     public WebElement getElement(String elementName) {
         List<String> pathes = getFormattedXPath(LocatorsXPaths.RADIO_BUTTON_XPATH, elementName);
-        System.out.println(pathes.size());
         for (String s :
                 pathes) {
-            System.out.println(s);
             List<WebElement> elements = driver.findElements(By.xpath(s));
-            System.out.println(elements.size());
             for (WebElement e :
                     elements) {
                 if(e.findElement(By.xpath("//ancestor::label")).getText()
