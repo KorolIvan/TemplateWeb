@@ -33,7 +33,7 @@ public class RadioButtonElement extends LocatorsController implements Selectable
             System.out.println(elements.size());
             for (WebElement e :
                     elements) {
-                if(e.findElement(By.xpath("//parent::label")).getText()
+                if(e.findElement(By.xpath("//ancestor::label")).getText()
                         .equalsIgnoreCase(elementName)){
                     return e;
                 }

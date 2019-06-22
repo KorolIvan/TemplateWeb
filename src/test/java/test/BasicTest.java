@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import korol.ivan.util.browserset.UseBrowser;
 
 import java.io.IOException;
-import java.time.Duration;
 
 /**
  * @author by Ivan Korol on 5/29/2017.
@@ -51,7 +50,7 @@ public class BasicTest {
     @Test
     public void someTest() {
         testPage.open();
-        testPage.clickElement(ElementType.LINK, "Buy");
+        testPage.selectElementWithLabel(ElementType.RADIOBUTTON, "Small", true);
         try{
             Thread.sleep(10000);
         } catch (InterruptedException e) {

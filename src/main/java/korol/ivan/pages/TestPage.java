@@ -11,6 +11,6 @@ public class TestPage extends MainFunction {
 
     @Override
     public void open() {
-        driver.get("https://www.zillow.com/");
+        driver.get("https://www.dyn-web.com/tutorials/forms/examples/pizza.php");
     }
 }
