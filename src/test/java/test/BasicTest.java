@@ -50,7 +50,7 @@ public class BasicTest {
     @Test
     public void someTest() {
         testPage.open();
-        testPage.selectElementWithLabel(ElementType.RADIOBUTTON, "Larg", true);
+        testPage.selectElementWithLabel(ElementType.CHECKBOX, "onions", true);
         try{
             Thread.sleep(10000);
         } catch (InterruptedException e) {

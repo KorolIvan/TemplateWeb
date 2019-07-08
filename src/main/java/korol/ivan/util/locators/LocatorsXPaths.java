@@ -9,13 +9,15 @@ package korol.ivan.util.locators;
 public class LocatorsXPaths {
     private LocatorsXPaths(){}
 
-    public final static String BUTTON_XPATH = "//input[@type='button'] " +
+    public static final String BUTTON_XPATH = "//input[@type='button'] " +
             "| //button[@value = '%s'] " +
             "| //div[contains(@Class, 'button')] " +
             " | //input[contains(@value, '%s')]";
 
-    public final static String LINK_XPATH = "//li//a[contains(@title, %s)]";
+    public static final String LINK_XPATH = "//li//a[contains(@title, %s)]";
 
-    public final static String RADIO_BUTTON_XPATH = "//form//label[text()=' %s']/input[@type='radio']";
+    public static final String RADIO_BUTTON_XPATH = "//form//label[text()=' %s']/input[@type='radio']";
+
+    public static final String CHECK_BOX_XPATH = "//form//label[text()=' %s']/input[@type='checkbox']";
 
 }

@@ -30,7 +30,7 @@ public class LocatorsManager {
             case TABLE:
                 return null;
             case CHECKBOX:
-                return null;
+                return CheckBoxElement.getInstance(driver);
             case DROPDOWN:
                 return null;
             case TEXTAREA:
