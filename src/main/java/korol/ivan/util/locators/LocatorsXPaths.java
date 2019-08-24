@@ -20,4 +20,6 @@ public class LocatorsXPaths {
 
     public static final String CHECK_BOX_XPATH = "//form//label[text()=' %s']/input[@type='checkbox']";
 
+    public static final String DROPDOWN_XPATH_BY_LABLE_OR_pLACEHOLDER = "";
+
 }
